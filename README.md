@@ -19,3 +19,12 @@ We handle our sales payroll as follows:
 7. Press `Submit`
 8. ???
 9. $$$ Profit $$$
+
+## TODO
+
+- [x] Basic functionality
+- [ ] Download file in browser instead of just writing to repo
+- [ ] Add second button to just write on page?
+- [ ] Read up on security measures (prevent XSS injection)
+- [ ] I dunno, input validation?
+- [ ] Tests?
