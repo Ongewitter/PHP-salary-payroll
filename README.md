@@ -14,7 +14,7 @@ We handle our sales payroll as follows:
 2. `git clone` this repo
 3. `cd` to the repo
 4. run `php -S localhost:9000`
-5. open a browser and go to http://localhost:9000/hello.php
+5. open a browser and go to [http://localhost:9000/calculatePayDates.php](http://localhost:9000/calculatePayDates.php)
 6. Fill in the input field with a number
 7. Press `Submit`
 8. ???
