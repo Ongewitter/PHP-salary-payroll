@@ -6,12 +6,25 @@
   <?php
     include './models/month.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $tmpName = tempnam(sys_get_temp_dir(), 'data');
-      $file = fopen($tmpName, 'w');
+    $yearErr = $year = '';
 
-      writePaydatesForYear($file, test_input($_POST["year"]));
-      downloadPayDates($tmpName);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (empty($_POST['year'])) {
+        $yearErr = 'Year is required';
+      } else {
+        $year = test_input($_POST['year']);
+        if(!is_numeric($year)) {
+          $yearErr = 'Year is not a valid number';
+        }
+      }
+
+      if (!$yearErr) {
+        $tmpName = tempnam(sys_get_temp_dir(), 'data');
+        $file = fopen($tmpName, 'w');
+  
+        writePaydatesForYear($file, $year);
+        downloadPayDates($tmpName);
+      }
     }
 
     function writePaydatesForYear($file, $year) {
@@ -52,13 +65,15 @@
   <h2>Pay Date calculation</h2>
       
   <form method='POST' action='<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>'>
-      <div>
-        <label>Year:</label>
-        <input type='number' name='year'>
-      </div>
-    </table>
+    </div>
+      <label for='year'>Year:</label>
+      <input type='text' name='year' id='year'>
+      <span class="error"><?php echo $yearErr;?></span>
+    </div>
 
-    <input type='submit' name='submit' value='Submit'> 
+    <div>
+      <input type='submit' name='submit' value='Submit'> 
+    </div>
   </form>
 
 
