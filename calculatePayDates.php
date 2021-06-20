@@ -23,7 +23,7 @@
         $file = fopen($tmpName, 'w');
   
         writePaydatesForYear($file, $year);
-        downloadPayDates($tmpName);
+        downloadPayDates($tmpName, $year);
       }
     }
 
@@ -40,11 +40,11 @@
       fclose($file);
     }
 
-    function downloadPayDates($fileName) {
+    function downloadPayDates($fileName, $year) {
       // Set Headers
       header('Content-Description: File Transfer;');
       header('Content-Type: application/csv; charset=UTF-8');
-      header('Content-Disposition: attachment; filename=myPayDates.csv;');
+      header('Content-Disposition: attachment; filename=myPayDates-' . $year . '.csv;');
       header('Content-Length: ' . filesize($fileName));
 
       // Clean up after ourselves
