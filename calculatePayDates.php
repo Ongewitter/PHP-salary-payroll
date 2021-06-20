@@ -28,15 +28,15 @@
     }
 
     function writePaydatesForYear($file, $year) {
-      if(!$year) { $year = date('Y'); }
-
       fwrite($file, 'Month,PayDate,BonusDate' . PHP_EOL);
+
       for ($i = 0; $i < 12; $i++){
         $date = date(strtotime($year . '-' . ($i + 1) . '-1'));
 
         $month = new Month($date);
         fwrite($file, $month->toString() . PHP_EOL);
       }
+
       fclose($file);
     }
 
