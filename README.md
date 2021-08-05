@@ -1,5 +1,10 @@
 # PHP-salary-payroll
 
+## WIP
+
+This is deffo a WIP, I may or may not actually end up finishing it.
+It should have tests, decent output, maybe even some CSS for funsies.
+
 ## Assignment
 You are required to create a utility in PHP to help us determine the dates we need to pay salaries to the sales department. 
 We handle our sales payroll as follows:
@@ -23,13 +28,17 @@ We handle our sales payroll as follows:
 ## Q&A
 
 Q: No Tests?
+
 A: Not yet, I'd have to read up on PHPUnit first.
 
 Q: Aktchulie, there's a function called `fputcsv`, you know
+
 A: Yeah, but I'd have to output the `Month` as an array and since we're not reusing it, I don't see the point. This way allows for more freedom in CSV creation. I would probably use it if I were to output it on the same page, since then we'd most likely stick the months in an array.
 
 Q: Why no button to output on the same page?
+
 A: I was considering it, but then we'd be veering into front-end territory. Might reconsider later.
 
 Q: Why didn't you spruce things up with jazzy CSS?
+
 A: This is a PHP exercise, not a CSS exercise.
